@@ -1,6 +1,6 @@
 import React from "react";
 import reactDOM from "react-dom";
-import axios from 'axios';
+
  import TransitionGroup from "react-transition-group";
 
  import FadeTransition from "../src/transitions/fadeTransition";
@@ -16,10 +16,13 @@ class App extends React.Component {
   }
 
   showLoginBox() {
+    console.log("insideLoginbox");
     this.setState({isLoginOpen: true, isRegisterOpen: false});
+    
   }
 
   showRegisterBox() {
+    console.log("insideRegisterbox");
     this.setState({isRegisterOpen: true, isLoginOpen: false});
   }
 
@@ -40,9 +43,7 @@ class App extends React.Component {
             className={"controller " + (this.state.isRegisterOpen
             ? "selected-controller"
             : "")}
-            onClick={() => this
-            .showRegisterBox
-            .bind(this)}>
+            onClick={() => this.showRegisterBox()}>
             Register
           </div>
         </div>
@@ -78,12 +79,11 @@ class LoginBox extends React.Component {
     // console.log('LoginDetails',this.state);
     // const {username,password}=this.state;
     //e.preventDefault();
-    var url = 'http://localhost:3600';
-    console.log('submit form')
-    axios.post(url, {
-      username: this.state.username,
-      password: this.state.password
-    })
+    fetch('http://localhost:3600/', {
+      method:'POST',
+      headers: {'Content-Type': 'application/json', 'Accept': 'application/text'},
+      body: JSON.stringify(this.state)
+  })
     .then(function (response) {
       console.log(response);
     })
@@ -204,15 +204,29 @@ class RegisterBox extends React.Component {
 
     console.log(this.state);
 
-    if (this.state.username == "") {
+    if (this.state.username === "") {
       this.showValidationErr("username", "Username Cannot be empty!");
+      return;
     }
-    if (this.state.email == "") {
+    if (this.state.email === "") {
       this.showValidationErr("email", "Email Cannot be empty!");
+      return;
     }
-    if (this.state.password == "") {
+    if (this.state.password === "") {
       this.showValidationErr("password", "Password Cannot be empty!");
+      return;
     }
+    fetch('http://localhost:3600/register', {
+      method:'POST',
+      headers: {'Content-Type': 'application/json', 'Accept': 'application/text'},
+      body: JSON.stringify(this.state)
+  })
+    .then(function (response) {
+      console.log(response);
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
 
   }
 
@@ -323,7 +337,7 @@ class RegisterBox extends React.Component {
             onHover={this
             .openPopup
             .bind(this)}
-            onClick={()=>this.openPopup()}>Register</button>
+            onClick={()=>this.submitRegister()}>Register</button>
 
         </div>
       </div>
