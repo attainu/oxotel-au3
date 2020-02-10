@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
+import { getuser } from "../api/api";
 
 // import { Link } from "react-router-dom";
 
@@ -9,6 +10,10 @@ const Login = props => {
         password: ""
     });
 
+    useEffect(() => {
+        getuser();
+        console.log("mounted")
+    }, [])
 
     const history = useHistory();
 

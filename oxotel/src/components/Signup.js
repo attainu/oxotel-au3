@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
+import { addNewuser } from "../api/api";
 
 const Signup = props => {
 
@@ -32,12 +33,22 @@ const Signup = props => {
                 lastName: state.lastName
             };
 
+            const dbData = {
+                email: state.email,
+                password: state.password,
+                firstname: state.firstName,
+                lastname: state.lastName
+            };
+            console.log("dbdata", JSON.stringify(signupData))
+
             dispatch({
                 type: "ADD_USER",
                 userData: signupData
             });
 
             try {
+                console.log("dbdata", JSON.stringify(signupData))
+                addNewuser(dbData);
                 localStorage.setItem("signupData", JSON.stringify(signupData));
                 alert('Details Submitted Successfully')
                 // window.location.reload();
