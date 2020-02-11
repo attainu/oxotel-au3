@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
-import { getuser } from "../api/api";
+import { getuser, verifyLoginDetails } from "../api/api";
 
 // import { Link } from "react-router-dom";
 
@@ -28,13 +28,20 @@ const Login = props => {
         console.log("hello")
         if (emailValidity() && state.password) {
             try {
-                let value = JSON.parse(localStorage.getItem("signupData"));
-                let email = value.email;
-                let password = value.password;
-
-                if (state.email === email && state.password === password) {
-                    history.push("/test");
+                let data = {
+                    email: state.email,
+                    password: state.password
                 }
+                // let value = JSON.parse(localStorage.getItem("signupData"));
+                // let email = value.email;
+                // let password = value.password;
+
+                // if (state.email === email && state.password === password) {
+                //     history.push("/test");
+
+                verifyLoginDetails(props, data)
+                history.push("/test");
+
             } catch (e) {
                 console.log(e.message);
                 alert("Email and password did not match");
