@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { addNewuser } from "../api/api";
 
@@ -8,8 +8,8 @@ const Signup = props => {
         email: "",
         password: "",
         confirmPassword: "",
-        firstName: "",
-        lastName: ""
+        firstname: "",
+        lastname: ""
     });
 
     const dispatch = useDispatch();
@@ -29,16 +29,10 @@ const Signup = props => {
             const signupData = {
                 email: state.email,
                 password: state.password,
-                firstName: state.firstName,
-                lastName: state.lastName
+                firstname: state.firstname,
+                lastname: state.lastname
             };
 
-            const dbData = {
-                email: state.email,
-                password: state.password,
-                firstname: state.firstName,
-                lastname: state.lastName
-            };
             console.log("dbdata", JSON.stringify(signupData))
 
             dispatch({
@@ -48,7 +42,8 @@ const Signup = props => {
 
             try {
                 console.log("dbdata", JSON.stringify(signupData))
-                addNewuser(dbData);
+                addNewuser(signupData);
+
                 localStorage.setItem("signupData", JSON.stringify(signupData));
                 alert('Details Submitted Successfully')
                 // window.location.reload();
@@ -64,8 +59,8 @@ const Signup = props => {
 
     const validityCheck = () => {
         return (
-            state.firstName.length > 2 &&
-            state.lastName.length > 2 &&
+            state.firstname.length > 2 &&
+            state.lastname.length > 2 &&
             state.email &&
             state.email.includes("@") &&
             state.email.includes(".") &&
@@ -115,10 +110,10 @@ const Signup = props => {
                         <input
                             className="form-control"
                             type="text"
-                            name="firstName"
+                            name="firstname"
                             placeholder="First Name"
                             required
-                            value={state.firstName}
+                            value={state.firstname}
                             onChange={changeHandler}
                         />
                     </div>
@@ -133,10 +128,10 @@ const Signup = props => {
                         <input
                             className="form-control"
                             type="text"
-                            name="lastName"
+                            name="lastname"
                             placeholder="Last Name"
                             required
-                            value={state.lastName}
+                            value={state.lastname}
                             onChange={changeHandler}
                         />
                     </div>
