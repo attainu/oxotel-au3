@@ -1,0 +1,31 @@
+footer * {
+  font-family: Bahnschrift SemiLight;
+  color: #3f586e;
+}
+
+footer h3 {
+  font-family: Broadway;
+  color: black;
+}
+
+.footer-content {
+  margin: 3rem;
+  width: 20%;
+}
+
+.footer-link {
+  margin: 5px;
+}
+
+@media only screen and (max-width: 768px) {
+  .footer-main {
+            flex-direction: column;
+            justify-content: center;
+  }
+  .footer-content {
+    text-align: center;
+    margin: 1rem;
+    width: 80%;
+  }
+}
+/*# sourceMappingURL=footer.css.map */

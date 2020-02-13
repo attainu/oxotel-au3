@@ -1,0 +1,51 @@
+.hotel-nav {
+    background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.5)),
+      url("https://i.imgur.com/x3TzdPA.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 35vh;
+    object-fit: cover;
+    margin-bottom: 50px;
+  }
+  .hotel-links {
+    height: 35vh;
+  }
+
+  .carousel{
+      width: 700px;
+  }
+
+.carousel-img {
+    width: 100%; 
+    height: 400px;  
+}
+
+.book-hotel{
+    width: 35%;
+    height: 400px;
+    margin-left: 2rem;
+}
+
+
+@media only screen and (max-width: 768px) {
+    .hotel-nav{
+        height: 15vh;
+    }
+    .hotel-links {
+        height: 15vh;
+      }
+    .carousel{
+        width: 100%;
+    }
+    .roomview-wrapper{
+        flex-direction: column;
+    }
+    .book-hotel{
+        width: 100%;
+        height: 200px;
+        margin: 0
+    }
+
+}
+    

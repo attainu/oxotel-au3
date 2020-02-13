@@ -10,7 +10,7 @@ import {
 // import Login from "./components/Login";
 // import NotFound from "./components/NotFound";
 // import Signup from "./components/Signup";
-import NotLogin from "./components/NotLogin";
+import Test from "./components/Test";
 
 
 const Home = () => {
@@ -30,8 +30,9 @@ const Home = () => {
     return (
         <Router>
             <div>
-                <Route exact path="/" component={App} />
-                <Route path="/test" component={NotLogin} />
+                <Route path="/" component={App} />
+                <Route path="/test" component={Test} />
+                {/* <RoutesLinks /> */}
                 {/* <Route path="/login" component={Login} /> */}
                 {/* <Route path="/signup" component={Signup} /> */}
                 {/* <Route path="/signup" component={SignUpComponent} /> */}
