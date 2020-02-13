@@ -1,0 +1,30 @@
+#dekstop1-img {
+    height: 90vh;
+    width: 100%;
+    object-fit: cover;
+  }
+  
+  .bg-overlay {
+    background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.5)),
+      url("https://i.imgur.com/x3TzdPA.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 90vh;
+    object-fit: cover;
+  }
+
+  .dash-h1 {
+    font-size: 80px;
+    line-height: 90px;
+    font-weight: 200;
+    color: rgb(255, 255, 255);
+    margin: 10rem; 
+    letter-spacing: 2px;
+  }
+
+  @media only screen and (max-width: 768px) {
+ .dash-h1{
+     font-size: 60px;
+    }
+  } 
