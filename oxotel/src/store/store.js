@@ -2,9 +2,13 @@ import usersReducer from "../reducer/usersReducer";
 import { createStore, combineReducers } from "redux";
 
 let rootReducers = combineReducers({
-    userData: usersReducer,
+    userData: usersReducer
 });
 
 let store = createStore(rootReducers);
 
-export { store };
+store.subscribe(() => {
+    console.log("dispatched Data: ", store.getState());
+})
+
+export default store;

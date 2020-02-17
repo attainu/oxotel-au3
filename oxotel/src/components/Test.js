@@ -3,7 +3,7 @@ import { Navbar } from 'react-bootstrap'
 // import Login from './Login'
 // import Signup from './Signup'
 
-export default function NotLogin() {
+export default function Test() {
     return (
         <>
             <Navbar />

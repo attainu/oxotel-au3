@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
 import { addNewuser } from "../api/api";
 
 const Signup = props => {
@@ -12,7 +11,6 @@ const Signup = props => {
         lastname: ""
     });
 
-    const dispatch = useDispatch();
 
     const changeHandler = e => {
         const { name } = e.target;
@@ -35,16 +33,10 @@ const Signup = props => {
 
             console.log("dbdata", JSON.stringify(signupData))
 
-            dispatch({
-                type: "ADD_USER",
-                userData: signupData
-            });
-
             try {
                 console.log("dbdata", JSON.stringify(signupData))
                 addNewuser(signupData);
 
-                localStorage.setItem("signupData", JSON.stringify(signupData));
                 alert('Details Submitted Successfully')
                 // window.location.reload();
                 props.handleSave();
@@ -170,10 +162,9 @@ const Signup = props => {
                         />
                     </div>
                     <div className="text-left font-italic mb-2">
-                        <small className="text-muted">
-                            passwords must contain at least eight characters, including at
-                least 1 letter and 1 number.{" "}
-                        </small>
+                        <small id="passwordHelpBlock" class="form-text text-muted">
+                            Your password must be 8-20 characters long, contain letters and numbers, and must not contain spaces, special characters, or emoji.
+</small>
                     </div>
                     <div className="form-group">
                         <button className="btn btn-primary btn-block" onClick={handleSubmit}>
