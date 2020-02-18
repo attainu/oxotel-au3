@@ -1,0 +1,28 @@
+{
+    "data": {
+      "services": [
+        { "type": "The Dubai oxotel", "price": 2 },
+        { "type": "The villa", "price": 4 },
+        { "type": "Oxotel3", "price": 6 },
+        { "type": "Oxotel4", "price": 8 },
+        { "type": "Oxotel5", "price": 10 }
+      ],
+      "addon": [
+        { "type": "1 Bed", "price": 6 },
+        { "type": "2 Bed", "price": 4 },
+        { "type": "3 Bed", "price": 8 },
+        { "type": "4 Bed", "price": 5 }
+      ],
+      "stylish": [
+        { "type": "No prefrences", "price": 5 },
+        { "type": "Breakfast", "price": 5 },
+        { "type": "Lunch", "price": 5 },
+        { "type": "Evening Tea", "price": 5 },
+        { "type": "Only Snacks", "price": 5 },
+        { "type": "Dinner", "price": 5 }
+      ],
+      "timings": [
+        "9:00 am", "11:00 am", "2:00 pm", "4:00 pm", "6:00 pm"
+      ]
+    }
+  }
