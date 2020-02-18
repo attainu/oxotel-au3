@@ -10,7 +10,7 @@ async function verifyLogin(data) {
             return false;
         }
         else {
-            return true;
+            return result
         }
     } catch (err) {
         console.log("err", err);
@@ -67,5 +67,23 @@ async function deleteuser(id) {
     }
 }
 
+async function updateuser(data, id) {
+    console.log(data, id)
+    try {
+        await usersModel.update({
+            firstname: data.firstname,
+            lastname: data.lastname,
+            password: data.password
+        }, { where: { id: id } })
+        const userD = await usersModel.findOne({ where: { id: id } })
+        console.log('sddsds1234', userD)
+        return userD
+    }
+    catch (e) {
+        console.log("err", e)
+        return false;
+    }
+}
 
-module.exports = { readUsersData, adduser, deleteuser, verifyLogin }
+
+module.exports = { readUsersData, adduser, deleteuser, verifyLogin, updateuser }

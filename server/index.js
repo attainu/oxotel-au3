@@ -22,7 +22,8 @@ app.post('/login', async (req, res) => {
         }
         else {
             result.success = true;
-            console.log("valid users")
+            result.user = validUser.dataValues
+            console.log("valid user", validUser.dataValues)
         }
 
     } catch (err) {
@@ -81,7 +82,32 @@ app.delete("/users", async (req, res) => {
             result.success = true;
         } else {
             console.log("somthing went wrong in delete")
-            resul.success = false;
+            result.success = false;
+        }
+    }
+    catch (e) {
+        result.success = false;
+    }
+    finally {
+        res.setHeader("content-type", "application/json")
+        res.send(JSON.stringify(result))
+    }
+})
+
+app.put("/user/:id", async (req, res) => {
+    let result = {}
+    try {
+        const reqJson = req.body;
+        const reqId = req.params.id
+        const valid = await controllers.updateuser(reqJson, reqId)
+        console.log("reqData", reqJson)
+        if (valid) {
+            console.log("update succecssfully")
+            result.success = true;
+            result.user = valid.dataValues
+        } else {
+            console.log("User Updating False")
+            result.success = false;
         }
     }
     catch (e) {

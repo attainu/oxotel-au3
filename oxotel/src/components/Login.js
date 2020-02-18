@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import { getuser, verifyLoginDetails } from "../api/api";
+import { useDispatch } from "react-redux";
+
 
 // import { Link } from "react-router-dom";
 
@@ -17,6 +19,8 @@ const Login = props => {
 
     const history = useHistory();
 
+    const dispatch = useDispatch();
+
 
     const handleChange = e => {
         // console.log(e.target.value)
@@ -25,22 +29,17 @@ const Login = props => {
     };
 
     const login = async () => {
-        console.log("hello")
+        // console.log("hello")
         if (emailValidity() && state.password) {
             try {
                 let data = {
                     email: state.email,
                     password: state.password
                 }
-                // let value = JSON.parse(localStorage.getItem("signupData"));
-                // let email = value.email;
-                // let password = value.password;
 
-                // if (state.email === email && state.password === password) {
-                //     history.push("/test");
-
-                verifyLoginDetails(props, data)
-                history.push("/test");
+                verifyLoginDetails(history, data, dispatch)
+                console.log(verifyLoginDetails)
+                // history.push("/test");
 
             } catch (e) {
                 console.log(e.message);

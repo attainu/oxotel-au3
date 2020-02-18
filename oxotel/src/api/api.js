@@ -1,4 +1,4 @@
-
+import store from "../store/store";
 
 function addNewuser(data) {
     console.log("getting data", data)
@@ -17,8 +17,8 @@ function addNewuser(data) {
         })
 }
 
-function verifyLoginDetails(props, getData) {
-    console.log("getting data", getData)
+function verifyLoginDetails(history, getData, dispatch) {
+    console.log("getting data", getData, history, dispatch)
 
     fetch('http://localhost:5000/login', {
         method: 'POST',
@@ -29,10 +29,19 @@ function verifyLoginDetails(props, getData) {
         .then(response => {
             console.log("success :", response)
             if (response.success === true) {
-                // props.history.push("/test")
+                // history.push("/test")
+                localStorage.setItem("signupData", JSON.stringify(response.user));
+                console.log(response.user)
+
+                store.dispatch({
+                    type: "ADD_USER",
+                    userData: response.user
+                });
+
                 alert("Login Successfully")
                 return true
-            } else {
+            }
+            else {
                 alert("wrong credintial")
                 return false
             }
@@ -41,6 +50,36 @@ function verifyLoginDetails(props, getData) {
             console.log('error', err)
             return false
         })
+}
+
+function updateProfile(userData, userId) {
+    console.log("recevied data", userData, "user ID", userId)
+    fetch(`http://localhost:5000/user/${userId}`, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(userData)
+    })
+        .then((data) => data.json())
+        .then(response => {
+            console.log("success :", response)
+            if (response.success === true) {
+                // window.location.reload()
+                localStorage.setItem("signupData", JSON.stringify(response.user));
+
+                store.dispatch({
+                    type: "UPDATE_USER_DETAILS",
+                    userData: response.user
+                });
+
+                alert("update Successfully")
+                return true
+            }
+        })
+        .catch((err) => {
+            console.log('error', err)
+        })
+
+
 }
 
 
@@ -52,4 +91,4 @@ function getuser() {
         })
 }
 
-export { addNewuser, getuser, verifyLoginDetails };
+export { addNewuser, getuser, verifyLoginDetails, updateProfile };

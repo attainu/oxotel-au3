@@ -7,40 +7,41 @@ export function Footer() {
         <Fragment>
             <footer >
                 <div className="mt-5 d-flex footer-main justify-content-around bg-light">
-                    <div class="footer-content">
+                    <div className="footer-content">
                         <h3>
                             Oxotel
                         </h3>
 
-                        <p class="footer-links">
-                            <a href="#" className='footer-link'>Home</a>
-                            <a href="#" className='footer-link'>Our Rooms</a>
-                            <a href="#" className='footer-link'>About</a>
-                            <a href="#" className='footer-link'>Contact</a>
+                        <p className="footer-links">
+                            <span> <a href="#" className='footer-link'>Home</a>
+                                <a href="#" className='footer-link'>Our Rooms</a>
+                                <a href="#" className='footer-link'>About</a>
+                                <a href="#" className='footer-link'>Contact</a>
+                            </span>
                         </p>
 
                         <p>Copyright &copy; 2020 oxotel.com</p>
                     </div>
 
-                    <div class="footer-content">
+                    <div className="footer-content">
                         <div>
-                            {/* <i class="fa fa-map-marker" /> */}
+                            {/* <i className="fa fa-map-marker" /> */}
                             <p>
                                 <span>Oxotel Pvt. Ltd., Mumbai </span>, India
                     </p>
                         </div>
 
                         <div>
-                            {/* <i class="fa fa-phone" /> */}
+                            {/* <i className="fa fa-phone" /> */}
                             <p>+1 555 123456</p>
                         </div>
                         <div>
-                            {/* <i class="fa fa-phone" /> */}
+                            {/* <i className="fa fa-phone" /> */}
                             <p>Reception 24 H</p>
                         </div>
 
                         <div>
-                            {/* <i class="fa fa-envelope" /> */}
+                            {/* <i className="fa fa-envelope" /> */}
                             <p>
                                 <a href="#">
                                     support@oxotel.com
@@ -49,25 +50,25 @@ export function Footer() {
                         </div>
                     </div>
 
-                    <div class="footer-content footer-right">
-                        <p>
-                            <h6 className="font-weight-bold">About the company</h6>
-                            Lorem ipsum dolor sit amet, consectateur adispicing elit. Fusce
-                            euismod convallis velit, eu auctor lacus vehicula sit amet.
+                    <div className="footer-content footer-right">
+
+                        <h6 className="font-weight-bold">About the company</h6>
+                        <p>Lorem ipsum dolor sit amet, consectateur adispicing elit. Fusce
+                        euismod convallis velit, eu auctor lacus vehicula sit amet.
                         </p>
 
-                        <div class="footer-icons">
+                        <div className="footer-icons">
                             <a href="#">
-                                {/* <i class="fa fa-facebook" /> */}
+                                {/* <i className="fa fa-facebook" /> */}
                             </a>
                             <a href="#">
-                                {/* <i class="fa fa-twitter" /> */}
+                                {/* <i className="fa fa-twitter" /> */}
                             </a>
                             <a href="#">
-                                {/* <i class="fa fa-linkedin" /> */}
+                                {/* <i className="fa fa-linkedin" /> */}
                             </a>
                             <a href="#">
-                                {/* <i class="fa fa-github" /> */}
+                                {/* <i className="fa fa-github" /> */}
                             </a>
                         </div>
                     </div>

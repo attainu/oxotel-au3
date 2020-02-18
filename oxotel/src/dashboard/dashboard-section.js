@@ -32,11 +32,9 @@ function Dashboard() {
                     <div className="section-2-main d-flex justify-content-center">
                         <div className="section-2-content text-center">
                             <h1>World's Fastest Growing Chain</h1>
-                            <h3>
-                                More Destination. More Ease.
-                                    <br />
-                                <h3>More Affordable</h3>
-                            </h3>
+                            <h3>More Destination. More Ease.</h3>
+                            {/* <br /> */}
+                            <h3>More Affordable</h3>
                         </div>
 
                         <div className="section-2-content d-flex flex-wrap">
