@@ -1,42 +1,38 @@
-import React, { useState } from 'react';
-import Hotels from "../data/data"
-import { Link } from "react-router-dom"
+import React, { useState } from 'react'
+import Hotels from '../../data/data'
+import { Link } from 'react-router-dom';
 
-export default function OurRooms() {
+export default function LocationFilter() {
+    // console.log("hotels:", Hotels)
 
-    const [state, setstate] = useState({
-        data: [],
-        roomTypes: []
-    })
-
-    const filterRooms = Hotels.filter(room => parseInt(room.price) < 1000)
-    console.log(filterRooms)
+    const [state, setstate] = useState({ data: [], city: "" })
 
     ///////unique value///////
-    const roomType = [];
+    const cityResult = [];
     const map = new Map();
     for (const hotel of Hotels) {
-        if (!map.has(hotel.propertyType)) {
-            map.set(hotel.propertyType, true);
-            roomType.push({
-                roomType: hotel.propertyType
+        if (!map.has(hotel.city)) {
+            map.set(hotel.city, true);
+            cityResult.push({
+                city: hotel.city
             });
         }
     }
 
-    const setter = (type) => {
-        const filterRooms = Hotels.filter((hotel) => hotel.propertyType === type)
+    const setter = (cityName) => {
+        const filterCITY = Hotels.filter((hotel) => hotel.city === cityName)
         setstate({
-            roomTypes: type,
-            data: filterRooms
+            city: cityName,
+            data: filterCITY
         })
-        console.log("filter >>>>", filterRooms, "roomType>>>>>", type)
+        console.log("filter >>>>", filterCITY, "city>>>>>", cityName)
     }
 
+
     const handleChange = (e) => {
-        console.log(e.target.innerText.toLowerCase())
-        let rmType = e.target.innerText.toLowerCase()
-        setter(rmType)
+        console.log(e.target.attributes.value.nodeValue)
+        let cityName = e.target.attributes.value.nodeValue
+        setter(cityName)
     }
 
     const RenderStars = (stars) => {
@@ -48,19 +44,20 @@ export default function OurRooms() {
         return totalS
     }
 
+    console.log("data >>>>", state.data)
+
     return (
         <div className="container">
-            <h2 className="">Rooms</h2>
+            <h2 className="">Available Cities</h2>
             <div className="d-flex">
                 {
-                    roomType.map((hotel, index) => {
+                    cityResult.map((hotel, index) => {
                         return (<div key={index}>
-                            <h3 className="btn btn-outline-info p-2 m-2" value={hotel.roomType} onClick={handleChange}>{hotel.roomType.toUpperCase()}</h3>
+                            <h3 className="btn btn-outline-info p-2 m-2" value={hotel.city} onClick={handleChange}>{hotel.city.toUpperCase()}</h3>
                         </div>)
                     })
                 }
             </div>
-
             <section>
                 <div className="container">
                     {state.data.map((hotel, index) => {

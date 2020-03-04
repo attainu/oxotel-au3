@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import { addNewuser } from "../api/api";
 
 const Signup = props => {
@@ -174,9 +175,9 @@ const Signup = props => {
                     </div>
                     <p className="text-center text-muted small">
                         Already have an account?{" "}
-                        <a href="#" onClick={props.handleSave}>
+                        <Link to="#" onClick={props.handleSave}>
                             Sign in here!
-              </a>
+              </Link>
                     </p>
                 </article>
             </div>

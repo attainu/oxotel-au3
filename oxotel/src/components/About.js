@@ -1,22 +1,16 @@
-import React, { useEffect } from 'react'
-import { useSelector, } from 'react-redux'
+import React from 'react'
 
 
 export default function About() {
 
-
-    useEffect(() => {
-        console.log("ggddfdf", data)
-    });
-    const data = useSelector(state => state)
-
-    const testUser = () => {
-        console.log("ggddfdf", data)
-    }
     return (
         <div>
-            <button onClick={testUser}>Check</button>
-            About
+            <div class="jumbotron">
+                <h1 class="display-4">About Us</h1>
+                <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+                <hr class="my-4" />
+                <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+            </div>
         </div>
     )
 }

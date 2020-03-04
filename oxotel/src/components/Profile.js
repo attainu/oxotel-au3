@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
 import { updateProfile } from "../api/api"
 
-export function Profile() {
+export default function Profile() {
 
     const [state, updateState] = useState({
         edit: false,
@@ -43,7 +42,6 @@ export function Profile() {
             let email = JSON.parse(localStorage.getItem("signupData")).email;
 
             updateState({
-                ...state,
                 firstname: firstname,
                 lastname: lastname,
                 password: password,
@@ -182,7 +180,7 @@ export function Profile() {
                                         onChange={changeHandler}
                                         required
                                     />
-                                    <small id="passwordHelpBlock" class="form-text text-muted">
+                                    <small id="passwordHelpBlock" className="form-text text-muted">
                                         Your password must be 8-20 characters long, contain letters and numbers, and must not contain spaces, special characters, or emoji.
 </small>
                                     <hr />
@@ -190,7 +188,7 @@ export function Profile() {
                                 <button
                                     type="button"
                                     onClick={handleSubmit}
-                                    class="btn p-2 btn-primary"
+                                    className="btn p-2 btn-primary"
                                 >
                                     Update
                         </button>

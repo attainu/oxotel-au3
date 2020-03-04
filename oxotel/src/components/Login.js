@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useHistory } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
 import { getuser, verifyLoginDetails } from "../api/api";
 import { useDispatch } from "react-redux";
 
@@ -37,8 +37,11 @@ const Login = props => {
                     password: state.password
                 }
 
-                verifyLoginDetails(history, data, dispatch)
-                console.log(verifyLoginDetails)
+                console.log(props)
+
+                let res = await verifyLoginDetails(history, data, dispatch, props)
+                console.log(res)
+                props.handleClose()
                 // history.push("/test");
 
             } catch (e) {
@@ -103,21 +106,21 @@ const Login = props => {
                 </div>
                 <p className="text-center">Login with your social media account</p>
                 <div className="text-center social-btn">
-                    <a href="#" className="btn btn-primary">
+                    <Link to="#" className="btn btn-primary">
                         <i className="fa fa-facebook" />
                         &nbsp; Facebook
-          </a>
-                    <a href="#" className="btn btn-danger ml-3">
+          </Link>
+                    <Link to="#" className="btn btn-danger ml-3">
                         <i className="fa fa-google" />
                         &nbsp; Google
-          </a>
+          </Link>
                 </div>
             </form>
             <p className="text-center text-muted small pt-2">
                 Don't have an account?{" "}
-                <a href="#" onClick={props.handleSave}>
+                <Link to="#" onClick={props.handleSave}>
                     Sign up here!
-                </a>
+                </Link>
             </p>
         </div>
     );

@@ -17,8 +17,8 @@ function addNewuser(data) {
         })
 }
 
-function verifyLoginDetails(history, getData, dispatch) {
-    console.log("getting data", getData, history, dispatch)
+function verifyLoginDetails(history, getData, dispatch, props) {
+    console.log("getting data", getData, history, dispatch, props)
 
     fetch('http://localhost:5000/login', {
         method: 'POST',
@@ -29,7 +29,6 @@ function verifyLoginDetails(history, getData, dispatch) {
         .then(response => {
             console.log("success :", response)
             if (response.success === true) {
-                // history.push("/test")
                 localStorage.setItem("signupData", JSON.stringify(response.user));
                 console.log(response.user)
 
@@ -37,7 +36,6 @@ function verifyLoginDetails(history, getData, dispatch) {
                     type: "ADD_USER",
                     userData: response.user
                 });
-
                 alert("Login Successfully")
                 return true
             }
@@ -45,6 +43,8 @@ function verifyLoginDetails(history, getData, dispatch) {
                 alert("wrong credintial")
                 return false
             }
+        }).then(() => {
+            history.push("/home")
         })
         .catch((err) => {
             console.log('error', err)
