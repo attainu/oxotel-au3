@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import "./css/roomView.css";
 import Carousel from 'react-bootstrap/Carousel';
+import hotelData from "../data/data"
+import Booking from './hotels/Booking';
 
 
 export function HotelImageCarousel() {
@@ -43,7 +45,36 @@ export function HotelImageCarousel() {
 }
 
 
-export function RoomView() {
+export function RoomView(props) {
+
+
+    const [state, setstate] = useState({ hotel: [] })
+
+    // console.log(props.match.params.id)
+
+
+    useEffect(() => {
+        const hotelId = props.match.params.id
+        const hotelDetails = hotelData.filter((Hotel) => Hotel.id === Number(hotelId))
+        const Hotelobj = hotelDetails[0]
+
+        setstate({
+            hotel: Hotelobj
+        })
+
+    }, [])
+
+    const RenderStars = (stars) => {
+        let star = []
+        for (let i = 0; i < stars; i++) {
+            star.push(<span className="text-primary">&#9733;</span>)
+        }
+        let totalS = star.map((ele, index) => (<span key={index}>{ele}</span>))
+        return totalS
+    }
+
+    console.log("Hotel =>>>", state.hotel)
+
     return (
         <div>
             <div className="hotel-nav">
@@ -60,13 +91,13 @@ export function RoomView() {
             <section>
                 <div className="container">
                     <div className="mb-5">
-                        <h2>Hotel Name</h2>
-                        <h5>Rating *****</h5>
+                        <h2>{state.hotel.hotelName}</h2>
+                        <h5 className="font-weight-bold">{RenderStars(state.hotel.star)}</h5>
                     </div>
                     <div className="d-flex roomview-wrapper">
                         <HotelImageCarousel />
-                        <div className="bg-dark book-hotel text-white">
-                            Book button and etc
+                        <div className="bg-light book-hotel text-white">
+                            <Booking state={state} />
                         </div>
                     </div>
                 </div>
@@ -75,46 +106,103 @@ export function RoomView() {
 
             <div className="container">
                 <div className="description">
-                    <h5 className="mt-5">Description</h5>
+                    <h5 className="mt-5 font-weight-bold">Description</h5>
                     <p>
-                        SPOT ON 47942 Sargam Lodging And Boarding, located near Hotel
-                  Jawahar in Mumbai is a tasteful property. It is close to tourist
-                  attractions like Gol Maidan, Birla Temple, and Jhulelal Mandir.
-                  Special Features The rooms here are warm-toned. The furniture here
-                  is simple and sleek. The walls are partially covered by tiles.
-                  Amenities The rooms are well-equipped with a TV and a mini-fridge
-                  while the bathrooms here come with hair-dryers. All kinds of beds
-                  are available here. There is a seating area also. Some rooms also
-                  have an AC. Modern amenities offered by the property include CCTV
-                  cameras and power backup facility. What's Nearby Eateries in the
-                  close proximity of the property include The Bake Shop, Noodle In
-                  Box, Rasoi, and Shiv Sagar Fine Dine Pure Veg.
-                  </p>
+                        {state.hotel.description}
+                    </p>
                 </div>
                 <hr />
                 <div className="room-serivces">
-                    <h5 className="mt-5">Room Service</h5>
-                    <ul>
-                        <li className="mt-1">
-                            Free wifi &#10004;
-                        </li>
-                        <li className="mt-1">
-                            Family Room &#10004;
-                        </li>
-                        <li className="mt-1">
-                            Restaurant &#10004;
-                        </li>
-                        <li className="mt-1">
-                            24-Hour front desk &#10004;
-                        </li>
-                        <li className="mt-1">
-                            Bar &#10006;
-                        </li>
-                    </ul>
+                    <h5 className="mt-5 font-weight-bold">Room Service</h5>
+                    <div className="col-sm-4">
+                        <ul className="list-group">
+                            <li className="list-group-item d-flex justify-content-between align-items-center">
+                                Free WiFi
+    <span className="badge badge-primary badge-pill ">{state.hotel.wifi === "Yes" ? <>&#10004;</> : <>&#10006;</>}</span>
+                            </li>
+                            <li className="list-group-item d-flex justify-content-between align-items-center">
+                                Parking
+    <span className="badge badge-primary badge-pill ">{state.hotel.parking === "Yes" ? <>&#10004;</> : <>&#10006;</>}</span>
+                            </li>
+                            <li className="list-group-item d-flex justify-content-between align-items-center">
+                                Swimming Pool
+    <span className="badge badge-primary badge-pill ">{state.hotel.swimmingPool === "Yes" ? <>&#10004;</> : <>&#10006;</>}</span>
+                            </li>
+                            <li className="list-group-item d-flex justify-content-between align-items-center">
+                                Fitness Center
+    <span className="badge badge-primary badge-pill ">{state.hotel.fitness_center === "Yes" ? <>&#10004;</> : <>&#10006;</>}</span>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
                 <hr />
                 <div className="pritn">
-                    <h5 className="mt-5">The Print</h5>
+                    <h5 className="mt-5 font-weight-bold">Hotel Info</h5>
+                    <div className="row">
+
+                        <ul className="list-group-flush col-6">
+                            <li className="list-group-item"><h5 className="font-weight-bold">Address</h5>
+                                <p>{state.hotel.address}</p></li>
+                            <li className="list-group-item"><h5 className="font-weight-bold">City</h5>
+                                <p>{state.hotel.city}</p></li>
+                            <li className="list-group-item"><h5 className="font-weight-bold">Country</h5>
+                                <p>{state.hotel.country}</p></li>
+                            <li className="list-group-item"><h5 className="font-weight-bold">Contact No.</h5>
+                                <p>{state.hotel.contactNo}</p></li>
+                            <li className="list-group-item"><h5 className="font-weight-bold">Email</h5>
+                                <p>{state.hotel.imgUrl}</p></li>
+                        </ul>
+
+                        <ul className="list-group-flush col-6">
+                            <li className="list-group-item"><h5 className="font-weight-bold">Available Rooms</h5>
+                                <p>{state.hotel.availableRooms}</p></li>
+                            <li className="list-group-item"><h5 className="font-weight-bold">Bed Rooms</h5>
+                                <p>{state.hotel.bedRooms}</p></li>
+                            <li className="list-group-item"><h5 className="font-weight-bold">Maximum Adults Allow</h5>
+                                <p>{state.hotel.maximumAdultsAllow}</p></li>
+                            <li className="list-group-item"><h5 className="font-weight-bold">Maximum Childs Allow</h5>
+                                <p>{state.hotel.maximumChildsAllow}</p></li>
+                            <li className="list-group-item"><h5 className="font-weight-bold">Property Type</h5>
+                                <p>{state.hotel.propertyType}</p></li>
+                        </ul>
+
+                    </div>
+
+
+                </div>
+                {/* /////////////////////////////////////////////////////////////////////////////// */}
+                <hr />
+
+                <div className="rules">
+                    <h5 className="mt-5 font-weight-bold">Hotel Rules</h5>
+                    <div className="row">
+                        <div className="col-2 mr-4">
+                            <p>Check-in</p>
+                            <p>Check-out</p>
+                            <p>Cancellation/prepayment</p>
+                            <p>Age restriction</p>
+                            <p>Cards accepted at this property </p>
+                            <p>Groups</p>
+                        </div>
+
+                        <div className="col-6">
+                            <p>Check in : 11:00 AM -- Check Out: 10:00 AM
+                            <small className="form-text text-muted">
+                                    Guests are required to show a photo identification and credit card upon check-in</small>
+                            </p>
+                            <p> Cancellation and prepayment policies vary according to accommodation type. Please enter the dates of your stay and check the conditions of your required room. </p>
+                            <p> The minimum age for check-in is 18</p>
+                            <p>Backpacker Panda Colaba accepts these cards and reserves the right to temporarily hold an amount prior to arrival.  </p>
+                            <p>When booking more than 4 rooms, different policies and additional supplements may apply. </p>
+                        </div>
+                    </div>
+
+                </div>
+                <hr />
+
+                {/* //////////////////////////////////////////////////////////////////////////////////// */}
+                <div className="pritn">
+                    <h5 className="mt-5 font-weight-bold">The fine Print</h5>
                     <p>
                         Please note that guests checking in must be at least 18 years of
                   age. According to government regulations guests are required to

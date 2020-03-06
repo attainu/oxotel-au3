@@ -1,11 +1,14 @@
 import { Fragment } from "react";
 import React from "react";
-import "./css/footer.css"
+import "./css/footer.css";
+import { Link } from "react-router-dom";
+
+
 
 export function Footer() {
     return (
         <Fragment>
-            <footer >
+            <footer className="footer">
                 <div className="mt-5 d-flex footer-main justify-content-around bg-light">
                     <div className="footer-content">
                         <h3>
@@ -13,10 +16,10 @@ export function Footer() {
                         </h3>
 
                         <p className="footer-links">
-                            <span> <a href="#" className='footer-link'>Home</a>
-                                <a href="#" className='footer-link'>Our Rooms</a>
-                                <a href="#" className='footer-link'>About</a>
-                                <a href="#" className='footer-link'>Contact</a>
+                            <span> <Link to="#" className='footer-link'>Home</Link>
+                                <Link to="#" className='footer-link'>Our Rooms</Link>
+                                <Link to="#" className='footer-link'>About</Link>
+                                <Link to="#" className='footer-link'>Contact</Link>
                             </span>
                         </p>
 
@@ -43,9 +46,9 @@ export function Footer() {
                         <div>
                             {/* <i className="fa fa-envelope" /> */}
                             <p>
-                                <a href="#">
+                                <Link to="#">
                                     support@oxotel.com
-                            </a>
+                            </Link>
                             </p>
                         </div>
                     </div>
@@ -58,18 +61,18 @@ export function Footer() {
                         </p>
 
                         <div className="footer-icons">
-                            <a href="#">
+                            <Link to="#">
                                 {/* <i className="fa fa-facebook" /> */}
-                            </a>
-                            <a href="#">
+                            </Link>
+                            <Link to="#">
                                 {/* <i className="fa fa-twitter" /> */}
-                            </a>
-                            <a href="#">
+                            </Link>
+                            <Link to="#">
                                 {/* <i className="fa fa-linkedin" /> */}
-                            </a>
-                            <a href="#">
+                            </Link>
+                            <Link to="#">
                                 {/* <i className="fa fa-github" /> */}
-                            </a>
+                            </Link>
                         </div>
                     </div>
                 </div>

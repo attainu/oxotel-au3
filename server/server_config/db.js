@@ -1,7 +1,7 @@
 const Sequelize = require('sequelize')
 const users = require('./models')
 
-const db = new Sequelize('banks', 'postgres', 'Undirmama@46', {
+const db = new Sequelize('banks', 'postgres', 'postgres', {
     host: 'localhost',
     dialect: 'postgres'
 });

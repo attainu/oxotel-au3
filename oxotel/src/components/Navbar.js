@@ -1,46 +1,47 @@
-import React from "react";
-import { Navbar, Nav } from "react-bootstrap";
+import React, { useEffect, useState } from "react";
+import { Navbar, Nav, DropdownButton, Dropdown } from "react-bootstrap";
 import LoginModal from "./Modal";
 
 
 const NavbarComponent = () => {
+
+    const [state, setstate] = useState({ userLogin: false })
+
+    useEffect(() => {
+        let LoggedIn = localStorage.getItem("signupData");
+        if (LoggedIn) {
+            setstate({ userLogin: true })
+        } else setstate({ userLogin: false })
+    }, [])
+
+    const profile = (<DropdownButton id="dropdown-basic-button" variant="info" drop="left" title="&#8801;">
+        <Dropdown.Item href="/profile">Profile</Dropdown.Item>
+        <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
+        <Dropdown.Item href="/logout">Logout</Dropdown.Item>
+    </DropdownButton>)
+
+
     return (
         <>
-            {/* <Navbar collapseOnSelect expand="lg">
-        <Navbar.Brand href="#home">
-          <p className="h2">Oxotel</p>
-        </Navbar.Brand>
-        <Nav className="collapse navbar-collapse">
-          <Nav.Link href="#deets">Home</Nav.Link>
-          <Nav.Link href="#deets">Our Rooms</Nav.Link>
-          <Nav.Link href="#deets">About Us</Nav.Link>
-          <Nav.Link eventKey={2} href="#memes">
-            Contact Us
-          </Nav.Link>
-        </Nav>
-        <Navbar.Collapse className="justify-content-end">
-          <Nav.Link>
-            <LoginModal />
-          </Nav.Link>
-        </Navbar.Collapse>
-      </Navbar> */}
-
             <Navbar collapseOnSelect expand="lg">
-                <Navbar.Brand href="#home">
+                <Navbar.Brand href="/home">
                     <p className="h2">Oxotel</p>
                 </Navbar.Brand>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="mr-auto">
-                        <Nav.Link href="/app">Home</Nav.Link>
+                        <Nav.Link href="/home">Home</Nav.Link>
                         <Nav.Link href="/ourRooms">Our Rooms</Nav.Link>
+                        <Nav.Link href="/locations">Our Locations</Nav.Link>
                         <Nav.Link href="/about">About Us</Nav.Link>
                         <Nav.Link href="/contact">Contact Us</Nav.Link>
+                        <Nav.Link href="/search">Search</Nav.Link>
                     </Nav>
                     <Nav>
-                        <Nav.Link>
-                            <LoginModal />
-                        </Nav.Link>
+                        {/* <Nav.Link> */}
+                        {state.userLogin ? (profile)
+                            : (<Nav.Link><LoginModal /></Nav.Link>)}
+                        {/* </Nav.Link> */}
                     </Nav>
                 </Navbar.Collapse>
             </Navbar>

@@ -1,7 +1,12 @@
 * {
-    font-family: "Corbel Light", sans-serif;
+    /* font-family: "Corbel Light", sans-serif; */
+    font-family: "Comfortaa"; 
 }
 
 .App {
   text-align: center;
+}
+
+.fullH{
+    height: 65vh;
 }

@@ -6,14 +6,41 @@
 }
 
 .section-1-content {
-  background: url("https://i.imgur.com/x3TzdPA.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-     object-fit: cover;
   width: 45%;
   height: 400px;
   margin: 1rem;
+}
+.room-img-1{
+    background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.1)),
+    url("../../data/black-flat-screen-tv-turned-off-210265.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+       object-fit: cover;
+}
+.room-img-2{
+    background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.1)),
+    url("../../data/open-curtain-833046.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+       object-fit: cover;
+}
+.room-img-3{
+    background:  linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.1)),
+    url("../../data/sofa-chairs-in-living-room-1648776.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+       object-fit: cover;
+}
+.room-img-4{
+    background:  linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.1)),
+    url("../../data/white-bed-linen-near-white-wooden-cabinet-3634741.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+       object-fit: cover;
 }
 
 .flex-item-2{
@@ -39,7 +66,7 @@
     width: 50%;
   }
   .section-4-img {
-    background: url("https://i.imgur.com/x3TzdPA.jpg");
+    background: url("https://stylishcorners.in/wp-content/uploads/2019/07/tourism-places.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
