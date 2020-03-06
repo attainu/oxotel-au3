@@ -94,7 +94,7 @@ export default function Profile() {
 
     return (
         <>
-            <div className="container shadow-sm p-3 mb-5  bg-white rounded border">
+            <div className="container shadow-sm p-3 mb-5  bg-white mt-5 fullH rounded border">
                 <h2>Profile</h2>
                 <h5 className="mb-5">Basic info, for a faster booking experience</h5>
                 <div className="mb-4">
