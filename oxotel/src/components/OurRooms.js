@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Hotels from "../data/data"
-import { Link } from "react-router-dom"
+import { Link } from "react-router-dom";
 
 export default function OurRooms() {
 
@@ -51,11 +51,14 @@ export default function OurRooms() {
     return (
         <div className="container">
             <h2 className="">Rooms</h2>
-            <div className="d-flex">
+            <div className="d-md-flex">
                 {
                     roomType.map((hotel, index) => {
-                        return (<div key={index}>
-                            <h3 className="btn btn-outline-info p-2 m-2" value={hotel.roomType} onClick={handleChange}>{hotel.roomType.toUpperCase()}</h3>
+                        return (<div key={index} className="m-3">
+                            <div className="card" style={{ "width": "18rem" }}>
+                                <img className="card-img-top" alt="" src="https://i.ibb.co/7RmgDK7/oxo.png" height="200" />
+                                <h3 className="btn btn-outline-info" value={hotel.roomType} onClick={handleChange}>{hotel.roomType.toUpperCase()}</h3>
+                            </div>
                         </div>)
                     })
                 }

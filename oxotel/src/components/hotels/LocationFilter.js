@@ -38,7 +38,7 @@ export default function LocationFilter() {
     const RenderStars = (stars) => {
         let star = []
         for (let i = 0; i < stars; i++) {
-            star.push(<span>&#9733;</span>)
+            star.push(<span className="text-primary">&#9733;</span>)
         }
         let totalS = star.map((ele, index) => (<span key={index}>{ele}</span>))
         return totalS
@@ -49,11 +49,14 @@ export default function LocationFilter() {
     return (
         <div className="container">
             <h2 className="">Available Cities</h2>
-            <div className="d-flex">
+            <div className="d-md-flex">
                 {
                     cityResult.map((hotel, index) => {
-                        return (<div key={index}>
-                            <h3 className="btn btn-outline-info p-2 m-2" value={hotel.city} onClick={handleChange}>{hotel.city.toUpperCase()}</h3>
+                        return (<div key={index} className="m-3">
+                            <div className="card" style={{ "width": "18rem" }}>
+                                <img className="card-img-top" src="https://i.ibb.co/7RmgDK7/oxo.png" alt="" height="200" />
+                                <h3 className="btn btn-outline-info" value={hotel.city} onClick={handleChange}>{hotel.city.toUpperCase()}</h3>
+                            </div>
                         </div>)
                     })
                 }

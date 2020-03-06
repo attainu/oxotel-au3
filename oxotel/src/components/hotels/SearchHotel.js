@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import AllRooms from "../../data/data";
-import FilterHotel from './FilterHotel'
 import { Link } from "react-router-dom"
 
 export default function SearchHotel() {
@@ -15,8 +14,6 @@ export default function SearchHotel() {
         const hotels = AllRooms.map(hotel => hotel);
         setstate({
             rooms: hotels,
-            // filterRoom: filterRating,
-            // findHotel: searchCity
         });
     }, []);
 
@@ -46,51 +43,29 @@ export default function SearchHotel() {
     const RenderStars = (stars) => {
         let star = []
         for (let i = 0; i < stars; i++) {
-            star.push(<span>&#9733;</span>)
+            star.push(<span className="text-primary">&#9733;</span>)
         }
         let totalS = star.map((ele, index) => (<span key={index}>{ele}</span>))
         return totalS
     }
 
 
-    // const handelCheck = e => {
-    //     const { name, value } = e.target;
-    //     console.log(name, ":", value)
-    //     if (state.isChecked) {
-    //         setstate({
-    //             ...state,
-    //             isChecked: false
-    //         });
-    //     }
-    //     setstate({
-    //         ...state,
-    //         isChecked: true
-    //     });
-
-    // };
-
-
-    // console.log(state.rooms)
     console.log("city search", state.filterRoom);
     console.log("city and hotel", state.findHotel);
 
     return (
-        <div className="container">
-            <div className="bg-light">
+        <div className="container mt-5 shadow-sm" style={{ background: "https://img.freepik.com/free-vector/modern-city-skyline-background_77417-791.jpg?size=626&ext=jpg" }}>
+            <div className="">
                 <h3 >Find deals on hotels, homes and much more... </h3>
-                <p >From cosy country homes to funky city flats </p>
             </div>
 
             <div className="input-group mb-3 col-md-5">
-                <input type="text" className="form-control" onChange={handelSearch} name="searchQuery" placeholder="Search Hotel name or City" aria-label="Recipient's username" aria-describedby="basic-addon2" />
-                <div className="input-group-append">
+                <input type="text" className="form-control my-4" onChange={handelSearch} name="searchQuery" placeholder="Search Hotel name or City" aria-label="Recipient's username" aria-describedby="basic-addon2" />
+                <div className="input-group-append p-0 my-4">
                     <span className="input-group-text btn btn-outline-secondary" onClick={onCancel} id="basic-addon2">&#10006;</span>
                 </div>
             </div>
 
-
-            {/* <input type="text" onChange={handelSearch} name="searchQuery" /><button onClick={onCancel}>&#10006;</button> */}
-            {/* <h5>Search Hotels, or Destination</h5> */}
 
             {state.findHotel ? (state.findHotel.map((hotel, index) => {
                 return (<div className="container mt-2" key={index}>
@@ -124,7 +99,6 @@ export default function SearchHotel() {
                 </div>)
             })) : (<h6>Search Hotels, or Destination</h6>)
             }
-            {/* <FilterHotel hotels={state.rooms} /> */}
         </div>
     );
 }

@@ -32,6 +32,7 @@ const NavbarComponent = () => {
                     <Nav className="mr-auto">
                         <Nav.Link href="/home">Home</Nav.Link>
                         <Nav.Link href="/ourRooms">Our Rooms</Nav.Link>
+                        <Nav.Link href="/locations">Our Locations</Nav.Link>
                         <Nav.Link href="/about">About Us</Nav.Link>
                         <Nav.Link href="/contact">Contact Us</Nav.Link>
                         <Nav.Link href="/search">Search</Nav.Link>

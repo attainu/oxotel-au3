@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import "./css/roomView.css";
 import Carousel from 'react-bootstrap/Carousel';
 import hotelData from "../data/data"
+import Booking from './hotels/Booking';
 
 
 export function HotelImageCarousel() {
@@ -66,13 +67,11 @@ export function RoomView(props) {
     const RenderStars = (stars) => {
         let star = []
         for (let i = 0; i < stars; i++) {
-            star.push(<span>&#9733;</span>)
+            star.push(<span className="text-primary">&#9733;</span>)
         }
         let totalS = star.map((ele, index) => (<span key={index}>{ele}</span>))
         return totalS
     }
-
-
 
     console.log("Hotel =>>>", state.hotel)
 
@@ -93,12 +92,12 @@ export function RoomView(props) {
                 <div className="container">
                     <div className="mb-5">
                         <h2>{state.hotel.hotelName}</h2>
-                        <h5>Star{RenderStars(state.hotel.star)}</h5>
+                        <h5 className="font-weight-bold">{RenderStars(state.hotel.star)}</h5>
                     </div>
                     <div className="d-flex roomview-wrapper">
                         <HotelImageCarousel />
-                        <div className="bg-dark book-hotel text-white">
-                            Book button and etc
+                        <div className="bg-light book-hotel text-white">
+                            <Booking state={state} />
                         </div>
                     </div>
                 </div>
@@ -107,14 +106,14 @@ export function RoomView(props) {
 
             <div className="container">
                 <div className="description">
-                    <h5 className="mt-5">Description</h5>
+                    <h5 className="mt-5 font-weight-bold">Description</h5>
                     <p>
                         {state.hotel.description}
                     </p>
                 </div>
                 <hr />
                 <div className="room-serivces">
-                    <h5 className="mt-5">Room Service</h5>
+                    <h5 className="mt-5 font-weight-bold">Room Service</h5>
                     <div className="col-sm-4">
                         <ul className="list-group">
                             <li className="list-group-item d-flex justify-content-between align-items-center">
@@ -134,53 +133,36 @@ export function RoomView(props) {
     <span className="badge badge-primary badge-pill ">{state.hotel.fitness_center === "Yes" ? <>&#10004;</> : <>&#10006;</>}</span>
                             </li>
                         </ul>
-                        {/* <ul>
-                            <li className="mt-1">
-                                Free wifi &#10004;
-                        </li>
-                            <li className="mt-1">
-                                Family Room &#10004;
-                        </li>
-                            <li className="mt-1">
-                                Restaurant &#10004;
-                        </li>
-                            <li className="mt-1">
-                                24-Hour front desk &#10004;
-                        </li>
-                            <li className="mt-1">
-                                Bar &#10006;
-                        </li>
-                        </ul> */}
                     </div>
                 </div>
                 <hr />
                 <div className="pritn">
-                    <h5 className="mt-5">Hotel Info</h5>
+                    <h5 className="mt-5 font-weight-bold">Hotel Info</h5>
                     <div className="row">
 
                         <ul className="list-group-flush col-6">
-                            <li className="list-group-item"><h5>Address</h5>
+                            <li className="list-group-item"><h5 className="font-weight-bold">Address</h5>
                                 <p>{state.hotel.address}</p></li>
-                            <li className="list-group-item"><h5>City</h5>
+                            <li className="list-group-item"><h5 className="font-weight-bold">City</h5>
                                 <p>{state.hotel.city}</p></li>
-                            <li className="list-group-item"><h5>Country</h5>
+                            <li className="list-group-item"><h5 className="font-weight-bold">Country</h5>
                                 <p>{state.hotel.country}</p></li>
-                            <li className="list-group-item"><h5>Contact No.</h5>
+                            <li className="list-group-item"><h5 className="font-weight-bold">Contact No.</h5>
                                 <p>{state.hotel.contactNo}</p></li>
-                            <li className="list-group-item"><h5>Email</h5>
+                            <li className="list-group-item"><h5 className="font-weight-bold">Email</h5>
                                 <p>{state.hotel.imgUrl}</p></li>
                         </ul>
 
                         <ul className="list-group-flush col-6">
-                            <li className="list-group-item"><h5>Available Rooms</h5>
+                            <li className="list-group-item"><h5 className="font-weight-bold">Available Rooms</h5>
                                 <p>{state.hotel.availableRooms}</p></li>
-                            <li className="list-group-item"><h5>Bed Rooms</h5>
+                            <li className="list-group-item"><h5 className="font-weight-bold">Bed Rooms</h5>
                                 <p>{state.hotel.bedRooms}</p></li>
-                            <li className="list-group-item"><h5>Maximum Adults Allow</h5>
+                            <li className="list-group-item"><h5 className="font-weight-bold">Maximum Adults Allow</h5>
                                 <p>{state.hotel.maximumAdultsAllow}</p></li>
-                            <li className="list-group-item"><h5>Maximum Childs Allow</h5>
+                            <li className="list-group-item"><h5 className="font-weight-bold">Maximum Childs Allow</h5>
                                 <p>{state.hotel.maximumChildsAllow}</p></li>
-                            <li className="list-group-item"><h5>Property Type</h5>
+                            <li className="list-group-item"><h5 className="font-weight-bold">Property Type</h5>
                                 <p>{state.hotel.propertyType}</p></li>
                         </ul>
 
@@ -192,7 +174,7 @@ export function RoomView(props) {
                 <hr />
 
                 <div className="rules">
-                    <h5 className="mt-5">Hotel Rules</h5>
+                    <h5 className="mt-5 font-weight-bold">Hotel Rules</h5>
                     <div className="row">
                         <div className="col-2 mr-4">
                             <p>Check-in</p>
@@ -220,7 +202,7 @@ export function RoomView(props) {
 
                 {/* //////////////////////////////////////////////////////////////////////////////////// */}
                 <div className="pritn">
-                    <h5 className="mt-5">The fine Print</h5>
+                    <h5 className="mt-5 font-weight-bold">The fine Print</h5>
                     <p>
                         Please note that guests checking in must be at least 18 years of
                   age. According to government regulations guests are required to
