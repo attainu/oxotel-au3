@@ -12,9 +12,10 @@ export default function App() {
     return (
         <>
             <NavbarComponent />
-            <div className="App" />
-
+            <div className="App">
+            </div>
             {LOGGEDIN ? (<LoggedIn />) : <NotLoggIn />}
+
 
             <Footer />
         </>

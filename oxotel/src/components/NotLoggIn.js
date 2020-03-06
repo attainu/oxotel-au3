@@ -6,7 +6,7 @@ export default function NotLoggIn() {
     console.log(LoginModal)
     return (
         <>
-            <div className="container">
+            <div className="container fullH">
                 <Alert variant="danger">
                     <Alert.Link href="#">Login Please!</Alert.Link>
                 </Alert>

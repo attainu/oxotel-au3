@@ -6,3 +6,7 @@
 .App {
   text-align: center;
 }
+
+.fullH{
+    height: 65vh;
+}
