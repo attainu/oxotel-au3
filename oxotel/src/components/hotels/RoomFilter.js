@@ -33,14 +33,14 @@ export default function RoomSize() {
     console.log(roomSize, "<<<<<", "size")
 
     return (
-        <div>
+        <div className="mt-5">
             {state.data ? (state.data.map((hotel, index) => {
                 return (<div className="container mt-2" key={index}>
                     <Link to={`/roomView/${hotel.id}`}>
                         <div className="col-md-8 text-dark">
                             <div className="d-sm-flex border" >
                                 <img
-                                    src="https://images.oyoroomscdn.com/uploads/hotel_image/89388/medium/261cd775d5772ed8.JPG"
+                                    src={hotel.photos ? hotel.photos : "https://images.oyoroomscdn.com/uploads/hotel_image/89388/medium/261cd775d5772ed8.JPG"}
                                     className="rounded p-2"
                                     height="200"
                                     width="200"

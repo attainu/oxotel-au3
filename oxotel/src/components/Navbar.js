@@ -23,7 +23,7 @@ const NavbarComponent = () => {
 
     return (
         <>
-            <Navbar collapseOnSelect expand="lg">
+            <Navbar collapseOnSelect expand="lg" className="shadow-sm">
                 <Navbar.Brand href="/home">
                     <p className="h2">Oxotel</p>
                 </Navbar.Brand>

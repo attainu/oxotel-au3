@@ -47,7 +47,7 @@ export default function LocationFilter() {
     console.log("data >>>>", state.data)
 
     return (
-        <div className="container">
+        <div className="container fullH mt-5">
             <h2 className="">Available Cities</h2>
             <div className="d-md-flex">
                 {
@@ -69,7 +69,7 @@ export default function LocationFilter() {
                                 <div className="col-md-8 text-dark">
                                     <div className="d-sm-flex border" >
                                         <img
-                                            src="https://images.oyoroomscdn.com/uploads/hotel_image/89388/medium/261cd775d5772ed8.JPG"
+                                            src={hotel.photos ? hotel.photos : "https://images.oyoroomscdn.com/uploads/hotel_image/89388/medium/261cd775d5772ed8.JPG"}
                                             className="rounded p-2"
                                             height="200"
                                             width="200"

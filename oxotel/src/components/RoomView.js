@@ -3,17 +3,28 @@ import "./css/roomView.css";
 import Carousel from 'react-bootstrap/Carousel';
 import hotelData from "../data/data"
 import Booking from './hotels/Booking';
+import { Link } from 'react-router-dom';
 
 
 export function HotelImageCarousel() {
     return (
         <div className="carousel-box">
-            <Carousel>
+            <Carousel interval="1500">
                 <Carousel.Item>
                     <div className="box">
                         <img
                             className=" carousel-img"
-                            src="https://i.imgur.com/x3TzdPA.jpg"
+                            src="https://images.pexels.com/photos/271643/pexels-photo-271643.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+                            alt="Third slide"
+                        />
+                    </div>
+
+                </Carousel.Item>
+                <Carousel.Item>
+                    <div className="box">
+                        <img
+                            src="https://images.pexels.com/photos/1444416/pexels-photo-1444416.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+                            className="carousel-img"
                             alt="Third slide"
                         />
                     </div>
@@ -23,17 +34,7 @@ export function HotelImageCarousel() {
                     <div className="box">
                         <img
                             className="carousel-img"
-                            src="https://i.imgur.com/x3TzdPA.jpg"
-                            alt="Third slide"
-                        />
-                    </div>
-
-                </Carousel.Item>
-                <Carousel.Item>
-                    <div className="box">
-                        <img
-                            className="carousel-img"
-                            src="https://i.imgur.com/x3TzdPA.jpg"
+                            src="https://images.pexels.com/photos/2899687/pexels-photo-2899687.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
                             alt="Third slide"
                         />
                     </div>
@@ -79,24 +80,24 @@ export function RoomView(props) {
         <div>
             <div className="hotel-nav">
                 <div className="hotel-links container d-flex flex-nowrap">
-                    <a href="Description" className="text-white mt-auto m-3 ml-5">
-                        Description</a>
-                    <a href="Description" className="text-white mt-auto m-3 ml-5">
-                        Room Service</a>
-                    <a href="Description" className="text-white mt-auto m-3 ml-5">
-                        Similar Rooms</a>
+                    <Link to="#" className="text-white mt-auto m-3 ml-5">
+                        Description</Link>
+                    <Link to="#" className="text-white mt-auto m-3 ml-5">
+                        Room Service</Link>
+                    <Link to="#" className="text-white mt-auto m-3 ml-5">
+                        Similar Rooms</Link>
                 </div>
             </div>
             {/* //////////////////////////////////////////////////////////////////////////////////////// */}
             <section>
                 <div className="container">
-                    <div className="mb-5">
+                    <div className="mb-4">
                         <h2>{state.hotel.hotelName}</h2>
                         <h5 className="font-weight-bold">{RenderStars(state.hotel.star)}</h5>
                     </div>
                     <div className="d-flex roomview-wrapper">
                         <HotelImageCarousel />
-                        <div className="bg-light book-hotel text-white">
+                        <div className="bg-light book-hotel text-white mb-5">
                             <Booking state={state} />
                         </div>
                     </div>
@@ -104,8 +105,8 @@ export function RoomView(props) {
             </section>
             {/* //////////////////////////////////////////////////////////////////////////////////////// */}
 
-            <div className="container">
-                <div className="description">
+            <div className="container ">
+                <div className="description infoView">
                     <h5 className="mt-5 font-weight-bold">Description</h5>
                     <p>
                         {state.hotel.description}

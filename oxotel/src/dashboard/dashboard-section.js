@@ -85,7 +85,7 @@ function Dashboard() {
                 <div className="container mt-5">
                     <div className="card-deck">
                         <div className="card">
-                            <img className="card-img-top" src="https://i.imgur.com/x3TzdPA.jpg" alt="" />
+                            <img className="card-img-top" src="https://images.pexels.com/photos/1395967/pexels-photo-1395967.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="" />
                             <div className="card-body">
                                 <h5 className="card-title">Restaurants</h5>
                                 <p className="card-text">
@@ -97,7 +97,7 @@ function Dashboard() {
                             </div>
                         </div>
                         <div className="card">
-                            <img className="card-img-top" src="https://i.imgur.com/x3TzdPA.jpg" alt="" />
+                            <img className="card-img-top" src="https://images.pexels.com/photos/1741285/pexels-photo-1741285.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="" />
                             <div className="card-body">
                                 <h5 className="card-title">Lounge Bar</h5>
                                 <p className="card-text">
@@ -109,7 +109,7 @@ function Dashboard() {
                             </div>
                         </div>
                         <div className="card">
-                            <img className="card-img-top" src="https://i.imgur.com/x3TzdPA.jpg" alt="" />
+                            <img className="card-img-top" src="https://images.pexels.com/photos/3188/love-romantic-bath-candlelight.jpg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="" />
                             <div className="card-body">
                                 <h5 className="card-title">Wellness</h5>
                                 <p className="card-text">

@@ -54,7 +54,7 @@ export default function SearchHotel() {
     console.log("city and hotel", state.findHotel);
 
     return (
-        <div className="container mt-5 shadow-sm" style={{ background: "https://img.freepik.com/free-vector/modern-city-skyline-background_77417-791.jpg?size=626&ext=jpg" }}>
+        <div className="container mt-5 shadow-sm fullH">
             <div className="">
                 <h3 >Find deals on hotels, homes and much more... </h3>
             </div>
@@ -73,7 +73,7 @@ export default function SearchHotel() {
                         <div className="col-md-8 text-dark">
                             <div className="d-sm-flex border" >
                                 <img
-                                    src="https://images.oyoroomscdn.com/uploads/hotel_image/89388/medium/261cd775d5772ed8.JPG"
+                                    src={hotel.photos ? hotel.photos : "https://images.oyoroomscdn.com/uploads/hotel_image/89388/medium/261cd775d5772ed8.JPG"}
                                     className="rounded p-2"
                                     height="200"
                                     width="200"

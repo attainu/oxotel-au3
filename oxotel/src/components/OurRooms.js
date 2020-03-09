@@ -49,7 +49,7 @@ export default function OurRooms() {
     }
 
     return (
-        <div className="container">
+        <div className="container mt-5 fullH">
             <h2 className="">Rooms</h2>
             <div className="d-md-flex">
                 {
@@ -72,7 +72,7 @@ export default function OurRooms() {
                                 <div className="col-md-8 text-dark">
                                     <div className="d-sm-flex border" >
                                         <img
-                                            src="https://images.oyoroomscdn.com/uploads/hotel_image/89388/medium/261cd775d5772ed8.JPG"
+                                            src={hotel.photos ? hotel.photos : "https://images.oyoroomscdn.com/uploads/hotel_image/89388/medium/261cd775d5772ed8.JPG"}
                                             className="rounded p-2"
                                             height="200"
                                             width="200"

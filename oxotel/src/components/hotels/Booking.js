@@ -178,7 +178,7 @@ export default function Booking(props) {
 
                     <div className="card-body">
 
-                        <label htmlFor="cardNumber">Email</label>
+                        <label htmlFor="cardNumber">Card Number</label>
                         <div className="input-group mb-3">
                             <input type="text" className="form-control" id="cardNumber" placeholder="Valid card number" value="4254-6547-3341" aria-describedby="basic-addon2" readOnly />
                             <div className="input-group-append">
