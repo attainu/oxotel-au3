@@ -23,6 +23,31 @@
         "bedRooms": 1,
         "availableRooms": 4
     },
+     {
+        "id": 14,
+        "hotelName": "Blue Ocean",
+        "city": "kota",
+        "address": "1432 Tincidunt St.",
+        "price": 1103,
+        "photos": "https://images.pexels.com/photos/262048/pexels-photo-262048.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+        "wifi": "No",
+        "fitness_center": "No",
+        "parking": "Yes",
+        "swimmingPool": "Yes",
+        "imgUrl": "cbc@cbc.com",
+        "availableDate": "02/08/2020",
+        "contactNo": "+919152877965",
+        "description": "    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+        "maximumAdultsAllow": 4,
+        "maximumChildsAllow": 5,
+        "country": "india",
+        "rating": 4,
+        "star": "4",
+        "propertyType": "apartment",
+        "bedRooms": 1,
+        "availableRooms": 4
+    },
+    
     {
         "id": 2,
         "hotelName": "Sai Hotels",
