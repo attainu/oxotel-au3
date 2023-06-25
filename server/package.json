@@ -10,11 +10,11 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "bcrypt": "^3.0.8",
+    "bcrypt": "^5.1.0",
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",
     "express": "^4.17.1",
-    "pg": "^7.18.1",
-    "sequelize": "^5.21.4"
+    "pg": "^8.11.0",
+    "sequelize": "^6.32.1"
   }
 }
